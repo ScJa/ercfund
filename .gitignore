@@ -1,0 +1,13 @@
+*.aux
+*.bbl
+*.blg
+*.gz
+*.out
+*.log
+
+*.node*
+node_modules
+build
+
+*.idea
+*.log
