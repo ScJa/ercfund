@@ -1,14 +1,9 @@
 {
-  "name": "hedge-fund-blockchain",
+  "name": "ercfund",
   "scripts": {
     "test": "scripts/test.sh",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "lint:sol": "solium -d .",
-    "lint:sol:fix": "solium -d . --fix",
-    "lint:all": "npm run lint && npm run lint:sol",
-    "lint:all:fix": "npm run lint:fix && npm run lint:sol:fix",
-    "console": "truffle console",
+    "lint": "solium -d .",
+    "lint:fix": "solium -d . --fix",
     "coverage": "scripts/coverage.sh"
   },
   "devDependencies": {
@@ -20,12 +15,13 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-bignumber": "^2.0.2",
-	"coveralls": "^2.13.1",
-	"ethereumjs-testrpc": "^6.0.1",
+    "coveralls": "^2.13.1",
+    "ethereumjs-testrpc": "^6.0.1",
     "left-pad": "^1.2.0",
     "web3": "^0.20.6",
     "truffle": "^4.0.0",
-	"solium": "^1.1.2"
+    "solidity-coverage": "^0.4.3",
+    "solium": "^1.1.2"
   },
   "dependencies": {
     "solidity-sha3": "^0.4.1",
