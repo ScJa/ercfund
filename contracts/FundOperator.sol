@@ -298,7 +298,7 @@ contract FundOperator {
 
         // Loop is ensuring that there are no duplicates by checking the addresses are strictly increasing
         address lastAdd = 0;
-        for (uint256 i = hotThreshold; i < trustPartyThreshold; i++) {
+        for (uint256 i = hotThreshold; i < hotThreshold + trustPartyThreshold; i++) {
             address recovered = ecrecover(txHash, _sigV[i], _sigR[i], _sigS[i]);
             require(recovered > lastAdd);
             require(isTrustPartyAccount[recovered]);

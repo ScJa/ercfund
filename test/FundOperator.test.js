@@ -33,8 +33,8 @@ contract("FundOperator", (accounts) => {
     let sender = accounts[0];
     let externalW = accounts[1];
     let coldKey = accounts[2];
-    let hotAccounts = accounts.slice(5, 10);
-    let trustAccounts = accounts.slice(15, 20);
+    let hotAccounts = accounts.slice(5, 15);
+    let trustAccounts = accounts.slice(15, 25);
     let sortedHotAccounts = hotAccounts.sort();
     let sortedTrustAccounts = trustAccounts.sort();
     let signees = sortedHotAccounts.slice(0, 3).concat(sortedTrustAccounts.slice(0, 3));
@@ -174,7 +174,6 @@ contract("FundOperator", (accounts) => {
 
     });
 
-    // todo edge cases
     describe("verifyHotAction", () => {
 
         describe("when supplying too little correct signatures", () => {
@@ -225,9 +224,18 @@ contract("FundOperator", (accounts) => {
             });
         });
 
+        describe("when the hotThreshold is one and given the correct sigs", () => {
+            it("should be successful", async () => {
+                operator = await FundOperator.new(1, 3, hotAccounts, trustAccounts, {from: sender});
+                let dataToSign = Web3Utils.soliditySha3("Hello");8
+                let sigs = await createSigs(dataToSign, [hotAccounts[0]]);
+                await operator.verifyHotAction(sigs.v, sigs.r, sigs.s, dataToSign).should.be.fulfilled;
+            });
+        });
+
         // Should throw at a different point though
         describe("when supplying too many correct signatures", () => {
-            it("should revert", async () => {
+            it("should be successful", async () => {
                 let dataToSign = Web3Utils.soliditySha3("Hello");
                 let sigs = await createSigs(dataToSign, sortedHotAccounts.slice(0, 4));
                 await operator.verifyHotAction(sigs.v, sigs.r, sigs.s, dataToSign).should.be.fulfilled;
@@ -248,6 +256,16 @@ contract("FundOperator", (accounts) => {
             });
         });
 
+        // Added in response to a critical code bug
+        describe("when given the correct amount but only hot sigs", () => {
+            it("should revert", async () => {
+                let dataToSign = Web3Utils.soliditySha3("Hello");
+                let sigs = await createSigs(dataToSign, sortedHotAccounts.slice(0, 6));
+                await operator.verifyTrustPartyAction(sigs.v, sigs.r, sigs.s, dataToSign)
+                    .should.be.rejectedWith(EVMRevert);
+            });
+        });
+
         describe("when the exact amount of correct signatures is given and left-padded by hot threshold", () => {
             it("should be successful", async () => {
                 let dataToSign = Web3Utils.soliditySha3("Hello");
@@ -257,7 +275,15 @@ contract("FundOperator", (accounts) => {
             });
         });
 
-        // todo should work with a threshold of 0
+        describe("when the trust treshold is 0", () => {
+            it("should be successful even given random sigs", async () => {
+                operator = await FundOperator.new(3, 0, hotAccounts, [], {from: sender});
+                let dataToSign = Web3Utils.soliditySha3("Hello");
+                let sigs = await createSigs(dataToSign, accounts.slice(0, 3));
+                await operator.verifyTrustPartyAction(sigs.v, sigs.r, sigs.s, dataToSign)
+                    .should.be.fulfilled;
+            });
+        });
 
     });
 
