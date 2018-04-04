@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.4.21;
 
 import "./open-zeppelin/math/SafeMath.sol";
 import "./FundToken.sol";
@@ -176,7 +176,7 @@ contract FundOperator {
         fund = _fund;
         isHotWallet[fund] = true;
         isTrustedWallet[fund] = true;
-        FundAdded(fund);
+        emit FundAdded(fund);
         nonce = nonce.add(1);
     }
 
@@ -190,7 +190,7 @@ contract FundOperator {
         bytes32 preHash = keccak256(this, uint256(Action.AddToken), _token, nonce);
         _verifyHotAction(_sigV, _sigR, _sigS, preHash);
         _verifyTrustPartyAction(_sigV, _sigR, _sigS, preHash);
-        FundTokenAuthorized(_token);
+        emit FundTokenAuthorized(_token);
         nonce = nonce.add(1);
         fund.addToken(_token);
     }
@@ -210,11 +210,11 @@ contract FundOperator {
             require(!isTrustedWallet[_wallets[i]]);
             require(_wallets[i].owner() == address(fund));
             isTrustedWallet[_wallets[i]] = true;
-            TrustedWalletAdded(_wallets[i]);
+            emit TrustedWalletAdded(_wallets[i]);
             if (_hot) {
                 isHotWallet[_wallets[i]] = true;
                 hotWallets.push(_wallets[i]);
-                HotWalletAdded(_wallets[i]);
+                emit HotWalletAdded(_wallets[i]);
             }
         }
         nonce = nonce.add(1);
@@ -240,8 +240,8 @@ contract FundOperator {
         coldAccounts.push(_key);
 
         _verifyColdStorageAccess(_sigV[_sigV.length - 1], _sigR[_sigR.length - 1], _sigS[_sigS.length - 1], preHash, _wallet);
-        ColdWalletAdded(_wallet, _key);
-        TrustedWalletAdded(_wallet);
+        emit ColdWalletAdded(_wallet, _key);
+        emit TrustedWalletAdded(_wallet);
         nonce = nonce.add(1);
     }
 
@@ -256,7 +256,7 @@ contract FundOperator {
         bytes32 txHash = keccak256(prefix, _preHash);
         address recovered = ecrecover(txHash, _sigV, _sigR, _sigS);
         require(coldStorage[_wallet] == recovered);
-        ColdWalletAccessed(_wallet);
+        emit ColdWalletAccessed(_wallet);
     }
 
     // @dev Internal function to verify every action taken in this class. Check the signatures given against the
@@ -345,7 +345,7 @@ contract FundOperator {
 
         // Triggers external call
         fund.moveEther(FundWallet(_from), _to, _value);
-        EtherTransferAuthorized(_from, _to, _value);
+        emit EtherTransferAuthorized(_from, _to, _value);
     }
 
     // @dev Authorizes a token transfer between two wallets
@@ -363,7 +363,7 @@ contract FundOperator {
 
         // Triggers external call
         fund.moveTokens(_token, _from, _to, _value);
-        TokenTransferAuthorized(address(_token), _from, _to, _value);
+        emit TokenTransferAuthorized(address(_token), _from, _to, _value);
     }
 
     // @dev Authorizes the fund to update the price for a token/share
@@ -379,7 +379,7 @@ contract FundOperator {
         _verifyHotAction(_sigV, _sigR, _sigS, preHash);
         nonce = nonce.add(1);
         fund.updatePrice(_numerator, _denominator);
-        PriceUpdateAuthorized(_numerator, _denominator);
+        emit PriceUpdateAuthorized(_numerator, _denominator);
     }
 
     // @dev Authorizes the pausing or unpausing of the fund
@@ -393,10 +393,10 @@ contract FundOperator {
         nonce = nonce.add(1);
         if (_pause) {
             fund.pause();
-            PauseAuthorized();
+            emit PauseAuthorized();
         } else {
             fund.unpause();
-            UnpauseAuthorized();
+            emit UnpauseAuthorized();
         }
     }
 

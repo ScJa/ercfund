@@ -1,8 +1,5 @@
-*.aux
-*.bbl
-*.blg
-*.gz
-*.out
+*.log
+*.idea
 *.log
 
 *.node*
@@ -10,5 +7,4 @@ node_modules
 build
 coverage
 
-*.idea
-*.log
+coverage.json

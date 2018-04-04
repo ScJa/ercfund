@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.4.21;
 
 import "./open-zeppelin/token/ERC20/MintableToken.sol";
 
@@ -48,8 +48,8 @@ contract FundToken is MintableToken {
         balances[_holder] = balances[_holder].sub(_value);
         totalSupply_ = totalSupply_.sub(_value);
         // Emits two events because there is no clear standard as to which one is used for burning events
-        Burn(_holder, _value);
-        Transfer(_holder, address(0), _value);
+        emit Burn(_holder, _value);
+        emit Transfer(_holder, address(0), _value);
     }
 
 }

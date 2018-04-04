@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.4.21;
 
 import "./open-zeppelin/math/SafeMath.sol";
 import "./open-zeppelin/lifecycle/Pausable.sol";
@@ -119,7 +119,7 @@ contract Fund is FundWallet, Pausable {
     {
         require(token == address(0));
         token = _token;
-        FundTokenAdded(address(token));
+        emit FundTokenAdded(address(token));
     }
 
     // @dev Withdraw function which is used to sell your shares/tokens of the fund in exchange for Ether
@@ -141,12 +141,12 @@ contract Fund is FundWallet, Pausable {
         address requestor = msg.sender;
         uint256 convertedValue = currentPrice.denominator.mul(_value).div(currentPrice.numerator);
         uint256 withdrawValue = convertedValue.mul(WITHDRAW_FEE).div(100);
-        if (this.balance >= withdrawValue) {
+        if (address(this).balance >= withdrawValue) {
             token.burn(requestor, _value);
             _to.transfer(withdrawValue);
-            Withdrawal(requestor, _to, _value, withdrawValue);
+            emit Withdrawal(requestor, _to, _value, withdrawValue);
         } else {
-            FailedWithdrawal(requestor, _to, _value, withdrawValue);
+            emit FailedWithdrawal(requestor, _to, _value, withdrawValue);
         }
     }
 
@@ -165,7 +165,7 @@ contract Fund is FundWallet, Pausable {
         uint256 convertedValue = msg.value.mul(currentPrice.numerator).div(currentPrice.denominator);
         uint256 purchaseValue = convertedValue.mul(PURCHASE_FEE).div(100);
         token.mint(_to, purchaseValue);
-        Purchase(msg.sender, _to, purchaseValue, msg.value);
+        emit Purchase(msg.sender, _to, purchaseValue, msg.value);
     }
 
     // @dev Simple function which updates the current price of the tokens/shares
@@ -179,7 +179,7 @@ contract Fund is FundWallet, Pausable {
         require(_denominator != 0);
         currentPrice.numerator = _numerator;
         currentPrice.denominator = _denominator;
-        PriceUpdate(_numerator, _denominator);
+        emit PriceUpdate(_numerator, _denominator);
     }
 
     // @dev Initiates a token transfer between two wallets
@@ -192,7 +192,7 @@ contract Fund is FundWallet, Pausable {
         onlyOwner
     {
         _from.sendTokens(_token, _to, _value);
-        TokensMoved(address(_token), _from, _to, _value);
+        emit TokensMoved(address(_token), _from, _to, _value);
     }
 
     // @dev Initiates an Ether transfer between two wallets
@@ -204,7 +204,7 @@ contract Fund is FundWallet, Pausable {
         onlyOwner
     {
         _from.sendEther(_to, _value);
-        EtherMoved(_from, _to, _value);
+        emit EtherMoved(_from, _to, _value);
     }
 
     // @dev Payable function which is used to add funds.

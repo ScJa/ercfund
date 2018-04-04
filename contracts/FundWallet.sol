@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.4.21;
 
 import "./open-zeppelin/ownership/Ownable.sol";
 import "./open-zeppelin/token/ERC20/ERC20.sol";
@@ -73,7 +73,7 @@ contract FundWallet is Ownable {
             // External call
             _to.transfer(_value);
         }
-        EtherSent(_to, _value, this.balance);
+        emit EtherSent(_to, _value, address(this).balance);
     }
 
     // @dev Function which initiates a simple token transfer
@@ -88,7 +88,7 @@ contract FundWallet is Ownable {
         require(_value > 0);
         // External call
         require(_token.transfer(_to, _value));
-        TokensSent(_token, _to, _value);
+        emit TokensSent(_token, _to, _value);
     }
 
     // @dev Default payable function which logs any Ether recieved
@@ -96,7 +96,7 @@ contract FundWallet is Ownable {
         public
         payable
     {
-        Received(msg.sender, msg.value, this.balance);
+        emit Received(msg.sender, msg.value, address(this).balance);
     }
 
 }
