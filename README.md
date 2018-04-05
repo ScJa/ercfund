@@ -73,7 +73,7 @@ Before creating a pull request make sure to run all tests and lint your code to 
 
 ## Contact
 
-I have created a [slack channel] where you can ask any questions about the repository or directly contact me.
+I have created a [slack channel](https://join.slack.com/t/ercfund/shared_invite/enQtMzQxNDA3ODY5NDA5LTRhYTc2OWM2NWNmMTc2MTAzZjgwMWU2ZDBiN2M2OTNlNDg2OTI0YTQzYTIyN2QyMmE5YTFlNTk1MWJkZmM2NGE) where you can ask any questions about the repository or directly contact me.
 
 ### About me
 
