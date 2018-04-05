@@ -50,18 +50,46 @@ An actively managed fund might need to make hundreds of transactions every day, 
 
 ## FAQ
 
-#### [Why does the fund not implement the withdraw pattern?](FAQ.md#why-does-the-fund-not-implement-the-withdraw-pattern)
-#### [I do not understand the signature verification in the FundOperator class](FAQ.md#i-do-not-understand-the-signature-verification-in-the-fundoperator-class)
-#### [What are the pros of an open-ended fund compared to a closed-end fund?](FAQ.md#what-are-the-pros-of-an-open-ended-fund-compared-to-a-closed-end-fund)
+#### - [I want to create a fund running on your smart contracts! How would I go about doing this?](FAQ.md#i-want-to-create-a-fund-running-on-your-smart-contracts-how-would-i-go-about-doing-this)
+#### - [Why does the fund not implement the withdraw pattern?](FAQ.md#why-does-the-fund-not-implement-the-withdraw-pattern)
+#### - [I do not understand the signature verification in the FundOperator class](FAQ.md#i-do-not-understand-the-signature-verification-in-the-fundoperator-class)
+#### - [What are the pros of an open-ended fund compared to a closed-end fund?](FAQ.md#what-are-the-pros-of-an-open-ended-fund-compared-to-a-closed-end-fund)
+#### - [How am I supposed to change owners of the Fund Operator?](FAQ.md#how-am-i-supposed-to-change-owners-of-the-fund-operator)
+
+## Contributing
+
+I really appreciate any contributions and feedback regarding the project. Please clone the repository and make a pull request in the repository after you have changed something.
+
+Setup is really easy by simply running `npm install` in your cloned repository.
+Afterwards you can run tests, coverage and linting like so:
+
+```
+npm test
+npm run coverage
+npm run lint
+```
+
+Before creating a pull request make sure to run all tests and lint your code to check if all changes can be adopted.
+
+## Contact
+
+I have created a [slack channel] where you can ask any questions about the repository or directly contact me.
+
+### About me
+
+I am currently finishing up my master studies at the Technical University of Vienna. I am both interested in blockchain-related tech and finance and developed this software as part of my master thesis.
+The master thesis will be published at least partly in the coming months.
 
 ## Special Thanks To
- - ![OpenZeppelin](https://github.com/OpenZeppelin/zeppelin-solidity): I reused many of their community-audited code for simple functions of the fund. I find their initiative great and it was my main resource on learning how to program in Solidity.
- - ![Christian Lundkvist's simple-multisig](https://github.com/christianlundkvist/simple-multisig): I got my inspiration for the Fund Operator's multi-sig functionality from Christian's simple-multisig wallet implementation. 
+
+ - [OpenZeppelin](https://github.com/OpenZeppelin/zeppelin-solidity): I reused many of their community-audited code for simple functions of the fund. I find their initiative great and it was my main resource on learning how to program in Solidity.
+ - [Christian Lundkvist's simple-multisig](https://github.com/christianlundkvist/simple-multisig): I got my inspiration for the Fund Operator's multi-sig functionality from Christian's simple-multisig wallet implementation. 
 
 ## License
+
 All parts of this repository except for the files in the "imgs/"-folder are licensed under the MIT License (some icons used cannot be relicensed).
 
-Parts of the repository are copyrighted (c) 2016 Smart Contract Solutions, Inc. (a.k.a OpenZeppelin), namely everything in the "open-zeppelin"-folders.
+Parts of the repository are copyrighted (c) 2016 Smart Contract Solutions, Inc. (a.k.a OpenZeppelin), namely everything in the "open-zeppelin"-folders and "scripts"-folder.
 
 Icons used in the graphic above are made by Smashicons, Freepik, Vectors Market, EpicCoders and Gregor Cresnar from www.flaticon.com.
 
