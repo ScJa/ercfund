@@ -54,6 +54,17 @@ An actively managed fund might need to make hundreds of transactions every day, 
 #### [I do not understand the signature verification in the FundOperator class](FAQ.md#i-do-not-understand-the-signature-verification-in-the-fundoperator-class)
 #### [What are the pros of an open-ended fund compared to a closed-end fund?](FAQ.md#what-are-the-pros-of-an-open-ended-fund-compared-to-a-closed-end-fund)
 
+## Special Thanks To
+ - ![OpenZeppelin](https://github.com/OpenZeppelin/zeppelin-solidity): I reused many of their community-audited code for simple functions of the fund. I find their initiative great and it was my main resource on learning how to program in Solidity.
+ - ![Christian Lundkvist's simple-multisig](https://github.com/christianlundkvist/simple-multisig): I got my inspiration for the Fund Operator's multi-sig functionality from Christian's simple-multisig wallet implementation. 
+
+## License
+All parts of this repository except for the files in the "imgs/"-folder are licensed under the MIT License (some icons used cannot be relicensed).
+
+Parts of the repository are copyrighted (c) 2016 Smart Contract Solutions, Inc. (a.k.a OpenZeppelin), namely everything in the "open-zeppelin"-folders.
+
+Icons used in the graphic above are made by Smashicons, Freepik, Vectors Market, EpicCoders and Gregor Cresnar from www.flaticon.com.
+
 
 
 
