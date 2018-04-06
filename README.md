@@ -1,5 +1,7 @@
-# ERCfund
+# ERCfund 
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/ScJa/ercfund.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20ERCFund:%20An%20open-ended%20hedge%20fund%20directly%20on%20the%20blockchain:&url=https%3A%2F%2Fgithub.com%2FScJa%2Fercfund)
 ### An open-ended hedge fund implementation on the Ethereum blockchain for managing ERC20 tokens.
+[![GitHub license](https://img.shields.io/github/license/ScJa/ercfund.svg)](https://github.com/ScJa/ercfund)
 ![Fund architecture](./imgs/ercfund.png)
 
 ## What is ERCFund?
