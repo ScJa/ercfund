@@ -5,12 +5,14 @@
 ![Fund architecture](./imgs/ercfund.png)
 
 ## What is ERCFund?
-ERCFund makes it possible to invest into an actively managed portfolio of ERC20-Tokens and Ether by introducing a on-demand minted and burned token as the medium for shares in the fund. 
-Compared to some other closed-end funds (e.g., TaaS.fund, The Token Fund) you can buy shares/tokens at any time by simply sending Ether to the fund.
+ERCFund makes it possible to invest into an actively managed portfolio of ERC20-Tokens and Ether by introducing a **on-demand minted and burned token as the medium for shares** in the fund. 
+Compared to some other closed-end funds (e.g., TaaS.fund, The Token Fund) you can **buy shares/tokens at any time** by simply sending Ether to the fund.
 These shares/tokens can also be sold at any time by calling the withdraw function of the fund which sends the corresponding value of Ether back to a specified wallet.
 
-Fund managers can freely trade with these tokens and hopefully make profits. Based on the assets under management the price for one token should be continously updated.
-
+**Fund managers can freely trade** with these tokens and make profits. Based on the assets under management the price for one token should be continously updated.
+ERCFund comes with a  multi-signature implementation for a fund operator contract. This implementation is especially designed for the purpose of managing a fund. 
+It offers **cold-wallet support** and a defined set of trusted wallets for different trust levels.
+Additionally the multi-signature operator has a **significantly lower gas cost than traditional multi-signature wallets by moving signing transaction off-chain** (e.g., Gnosis Multi-signature wallet).
 
 ### Vision
 Currently investing in a range of different cryptocurrencies requires a lot of technical knowledge. This has spawned the need for easy way to invest while reducing entry barriers. Multiple well-known and successful initiatives are on the market like Crypto20, ICONOMI, Melon, Grayscale, etc. 
@@ -47,7 +49,9 @@ Still, the trust party group is fully optional!
 The idea behind this trust structure is that the fund managers can normally trade and manage the funds within a defined trusted area (e.g., internal wallets and exchanges). If they want to introduce a new wallet or send to an untrusted wallet they have to get additional signatures. This prevents anybody managing the fund from maliciously moving Ether or tokens.
 
 Furthermore the FundOperator class implements the addition of cold wallets to the fund, which are especially safe wallets which were never connected to the internet.
-This is possible because signing an action for fund happens off-chain instead of on-chain (like the Gnosis multi-sig wallet). Signing on-chain has pros and cons, the main pro is, is that it is simpler to use, because you do not need a special application to sign your transactions off-chain. The cons are that transactions are more expensive, because you need to send a confirmation from key holder, also signing off-chain is arguably more secure if done right.
+This is possible because signing an action for fund happens off-chain instead of on-chain (like the Gnosis multi-sig wallet). 
+Signing on-chain has pros and cons, the main pro is, is that it is simpler to use, because you do not need a special application to sign your transactions off-chain. 
+The cons are that transactions are more expensive, because you need to send a confirmation from key holder, also signing off-chain is arguably more secure if done right.
 An actively managed fund might need to make hundreds of transactions every day, signing off-chain decreases transaction cost significantly.
 
 ## FAQ
@@ -55,6 +59,7 @@ An actively managed fund might need to make hundreds of transactions every day, 
 #### - [I want to create a fund running on your smart contracts! How would I go about doing this?](FAQ.md#i-want-to-create-a-fund-running-on-your-smart-contracts-how-would-i-go-about-doing-this)
 #### - [Why does the fund not implement the withdraw pattern?](FAQ.md#why-does-the-fund-not-implement-the-withdraw-pattern)
 #### - [I do not understand the signature verification in the FundOperator class](FAQ.md#i-do-not-understand-the-signature-verification-in-the-fundoperator-class)
+#### - [Why are you signing transactions off-chain?](FAQ.md#why-are-you-signing-transactions-off-chain)
 #### - [What are the pros of an open-ended fund compared to a closed-end fund?](FAQ.md#what-are-the-pros-of-an-open-ended-fund-compared-to-a-closed-end-fund)
 #### - [How am I supposed to change owners of the Fund Operator?](FAQ.md#how-am-i-supposed-to-change-owners-of-the-fund-operator)
 

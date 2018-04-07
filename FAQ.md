@@ -27,6 +27,26 @@ The signatures used follow the [ERC191](https://github.com/ethereum/EIPs/issues/
 
 For examples on how to sign transaction it is surely helpful to look at the tests in the test/FundOperator.test.js
 
+## Why are you signing transactions off-chain?
+It is commonly seen and widespread to sign transaction on-chain for multi-signature wallets. The reasons for this is simple and justified: It is difficult to manually sign transactions off-chain without a client-software
+designed for signing these transaction. Gnosis multi-signature wallet can be used with standard wallet software.
+
+However signing on-chain has some restrictions that make it unsuitable for an actively managed hedgefund: **Every transaction is very expensive.** 
+A hedge fund potentially has to send hundreds of transactions daily, which makes gas costs a big cost factor.
+What is so expensive about these multi-sig wallets? Let's say you have a wallet with 10 owners which requires 7 keys to send a transaction. 
+I will make a very rough gas calculation comparing on-chain vs. off-chain for this scenario.
+
+Signing on-chain requires at least 7 transactions from the different accounts, every transaction costs at least 20.000 gas just to send alone. Additionally every signature has to be saved within the storage of the contract.
+Saving values on the blockchain is one of the most expensive operations: Saving a new value costs 20.000 gas. That means we have at least a gas cost of 7 * (20.000 + 20.000) = 280.000 gas. 
+By looking at the last transactions of the Gnosis multi-sig we can expect the gas cost to be at least 50% higher in reality because of other operations called.
+
+Signing off-chain only requires a single transaction to execute an action independent of the amount of signatures needed. Furthermore there is no need to save signatures in the storage of the contract.
+Instead of saving a confirmation in storage we have to pay the cost for the operations of hashing and recovering the signatures of seven keys. 
+From observing the contracts on a local-chain the gas cost for signing with 7 keys off-chain is ~120.000 gas.
+
+You shouldn't take away from this that signing off-chain is superior, quite the contrary, I believe signing on-chain is superior for most use cases.
+However for a high-frequency of transactions off-chain signing is crucial for reducing the upkeep.
+
 ## What are the pros of an open-ended fund compared to a closed-end fund?
 Closed-end funds only allow investment at one point in time, usually in the form of an ICO. Afterwards no more money can be invested in the fund. This can lead to two common scenarios:
 If the fund is well-managed and produces profit, shares of the fund are sold at a premium price, meaning you e.g., pay 20% more for a share then the underlying assets are actually worth.
