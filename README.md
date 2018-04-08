@@ -1,6 +1,6 @@
 # ERCfund 
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/ScJa/ercfund.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20ERCFund:%20An%20open-ended%20hedge%20fund%20directly%20on%20the%20blockchain:&url=https%3A%2F%2Fgithub.com%2FScJa%2Fercfund)
-### An open-ended hedge fund implementation on the Ethereum blockchain for managing ERC20 tokens.
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/ScJa/ercfund.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20ERCFund:%20An%20open-ended%20investment%20fund%20directly%20on%20the%20blockchain:&url=https%3A%2F%2Fgithub.com%2FScJa%2Fercfund)
+### An open-ended investment fund implementation on the Ethereum blockchain for managing ERC20 tokens.
 [![GitHub license](https://img.shields.io/github/license/ScJa/ercfund.svg)](https://github.com/ScJa/ercfund)
 ![Fund architecture](./imgs/ercfund.png)
 
@@ -19,7 +19,7 @@ Currently investing in a range of different cryptocurrencies requires a lot of t
 
 However the sector of cryptocurrency investment is difficult to enter for smaller, independent investors who possess market knowledge and are experienced in traditional fields but simply lack the technical knowledge to offer a product in the cryptocurrency sector.
 
-ERCFund strives to provide an safe, extensible implementation of a hedge fund for ERC20 tokens. Security and trust is immensly important for lesser known players. For this reason all parts of the fund are rigorously tested and reuse community-audited code from OpenZeppelin. Furthermore it provides the possibility to add external trust parties to the management team which can make prospective investors feel secure by preventing fund managers to mishandle their money.
+ERCFund strives to provide an safe, extensible implementation of a investment fund for ERC20 tokens. Security and trust is immensly important for lesser known players. For this reason all parts of the fund are rigorously tested and reuse community-audited code from OpenZeppelin. Furthermore it provides the possibility to add external trust parties to the management team which can make prospective investors feel secure by preventing fund managers to mishandle their money.
 
 ### Architecture 
 
@@ -32,7 +32,7 @@ In the picture above you can get a rough overview of the implementation. The who
 - FundWallet.sol
 
 #### Fund
-The fund is the connection piece between all of the classes. It implements the core functionality of a hedge fund. The fund can manage an arbitrary number of wallets and can send Ether or ERC20-compatible tokens from these wallets.
+The fund is the connection piece between all of the classes. It implements the core functionality of a investment fund. The fund can manage an arbitrary number of wallets and can send Ether or ERC20-compatible tokens from these wallets.
 
 Additionally the fund lets interested individuals purchase and sell "shares" of the fund in the form of a FundToken. These tokens are dynamically created and burned based on the current price of the fund and fees of the fund. This price should be continously updated by the fund operators.
 

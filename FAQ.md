@@ -31,8 +31,8 @@ For examples on how to sign transaction it is surely helpful to look at the test
 It is commonly seen and widespread to sign transaction on-chain for multi-signature wallets. The reasons for this is simple and justified: It is difficult to manually sign transactions off-chain without a client-software
 designed for signing these transaction. Gnosis multi-signature wallet can be used with standard wallet software.
 
-However signing on-chain has some restrictions that make it unsuitable for an actively managed hedgefund: **Every transaction is very expensive.** 
-A hedge fund potentially has to send hundreds of transactions daily, which makes gas costs a big cost factor.
+However signing on-chain has some restrictions that make it unsuitable for an actively managed fund: **Every transaction is very expensive.** 
+An investment fund potentially has to send hundreds of transactions daily, which makes gas costs a big cost factor.
 What is so expensive about these multi-sig wallets? Let's say you have a wallet with 10 owners which requires 7 keys to send a transaction. 
 I will make a very rough gas calculation comparing on-chain vs. off-chain for this scenario.
 
