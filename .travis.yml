@@ -19,5 +19,3 @@ before_script:
 script:
   - npm run lint
   - npm run test
-after_script:
-  - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
