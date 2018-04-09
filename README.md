@@ -1,9 +1,11 @@
 # ERCfund 
-
-### An open-ended investment fund implementation on the Ethereum blockchain for managing ERC20 tokens.
-![Builds status](https://travis-ci.org/ScJa/ercfund.svg?branch=master)
+[![Builds status](https://travis-ci.org/ScJa/ercfund.svg?branch=master)](https://travis-ci.org/ScJa/ercfund)
+[![Coverage Status](https://coveralls.io/repos/github/ScJa/ercfund/badge.svg?branch=master)](https://coveralls.io/github/ScJa/ercfund?branch=master)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/ScJa/ercfund.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20ERCFund:%20An%20open-ended%20investment%20fund%20directly%20on%20the%20blockchain:&url=https%3A%2F%2Fgithub.com%2FScJa%2Fercfund)
+### An open-ended investment fund implementation on the Ethereum blockchain for managing ERC20 tokens.
+
 ![Fund architecture](./imgs/ercfund.png)
+
 
 ## What is ERCFund?
 ERCFund makes it possible to invest into an actively managed portfolio of ERC20-Tokens and Ether by introducing a **on-demand minted and burned token as the medium for shares** in the fund. 
