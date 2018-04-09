@@ -1,7 +1,8 @@
-# ERCfund [![Twitter](https://img.shields.io/twitter/url/https/github.com/ScJa/ercfund.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20ERCFund:%20An%20open-ended%20investment%20fund%20directly%20on%20the%20blockchain:&url=https%3A%2F%2Fgithub.com%2FScJa%2Fercfund)
+# ERCfund 
 
 ### An open-ended investment fund implementation on the Ethereum blockchain for managing ERC20 tokens.
-[![Builds status](https://travis-ci.com/ScJa/ercfund.svg?token=KZKkxysNE4YByhASgwf8&branch=master)
+![Builds status](https://travis-ci.com/ScJa/ercfund.svg?token=KZKkxysNE4YByhASgwf8&branch=master)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/ScJa/ercfund.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20ERCFund:%20An%20open-ended%20investment%20fund%20directly%20on%20the%20blockchain:&url=https%3A%2F%2Fgithub.com%2FScJa%2Fercfund)
 ![Fund architecture](./imgs/ercfund.png)
 
 ## What is ERCFund?
@@ -12,7 +13,7 @@ These shares/tokens can also be sold at any time by calling the withdraw functio
 **Fund managers can freely trade** with these tokens and make profits. Based on the assets under management the price for one token should be continously updated.
 ERCFund comes with a  multi-signature implementation for a fund operator contract. This implementation is especially designed for the purpose of managing a fund. 
 It offers **cold-wallet support** and a defined set of trusted wallets for different trust levels.
-Additionally the multi-signature operator has a **significantly lower gas cost than traditional multi-signature wallets by moving signing transaction off-chain** (e.g., Gnosis Multi-signature wallet).
+Additionally the multi-signature operator has a **significantly lower gas cost than traditional multi-signature wallets by moving signing transaction off-chain**.
 
 ### Vision
 Currently investing in a range of different cryptocurrencies requires a lot of technical knowledge. This has spawned the need for easy way to invest while reducing entry barriers. Multiple well-known and successful initiatives are on the market like Crypto20, ICONOMI, Melon, Grayscale, etc. 
