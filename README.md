@@ -1,7 +1,7 @@
 # ERCfund 
 
 ### An open-ended investment fund implementation on the Ethereum blockchain for managing ERC20 tokens.
-![Builds status](https://travis-ci.com/ScJa/ercfund.svg?token=KZKkxysNE4YByhASgwf8&branch=master)
+![Builds status](https://travis-ci.org/ScJa/ercfund.svg?branch=master)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/ScJa/ercfund.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20ERCFund:%20An%20open-ended%20investment%20fund%20directly%20on%20the%20blockchain:&url=https%3A%2F%2Fgithub.com%2FScJa%2Fercfund)
 ![Fund architecture](./imgs/ercfund.png)
 
@@ -10,7 +10,7 @@ ERCFund makes it possible to invest into an actively managed portfolio of ERC20-
 Compared to some other closed-end funds (e.g., TaaS.fund, The Token Fund) you can **buy shares/tokens at any time** by simply sending Ether to the fund.
 These shares/tokens can also be sold at any time by calling the withdraw function of the fund which sends the corresponding value of Ether back to a specified wallet.
 
-**Fund managers can freely trade** with these tokens and make profits. Based on the assets under management the price for one token should be continously updated.
+**Fund managers can freely trade** with these tokens and make profits. Based on the assets under management the price for one token should be continuously updated.
 ERCFund comes with a  multi-signature implementation for a fund operator contract. This implementation is especially designed for the purpose of managing a fund. 
 It offers **cold-wallet support** and a defined set of trusted wallets for different trust levels.
 Additionally the multi-signature operator has a **significantly lower gas cost than traditional multi-signature wallets by moving signing transaction off-chain**.
