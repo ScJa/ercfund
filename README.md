@@ -94,7 +94,9 @@ The master thesis will be published at least partly in the coming months.
 
  - [OpenZeppelin](https://github.com/OpenZeppelin/zeppelin-solidity): I reused many of their community-audited code for simple functions of the fund. I find their initiative great and it was my main resource on learning how to program in Solidity.
  - [Christian Lundkvist's simple-multisig](https://github.com/christianlundkvist/simple-multisig): I got my inspiration for the Fund Operator's multi-sig functionality from Christian's simple-multisig wallet implementation. 
- - ![Security and Privacy Chair](./imgs/secprivlogo.png): For supervising my research project/master thesis and giving me tons of advice. Specifically Prof. Matteo Maffei, Clara Schneidewind and Ilya Grishchenko.
+ 
+![Security and Privacy Chair](./imgs/secprivlogo.png)\
+For supervising my research project/master thesis and giving me tons of advice. Specifically Prof. Matteo Maffei, Clara Schneidewind and Ilya Grishchenko.
 
 ## License
 
