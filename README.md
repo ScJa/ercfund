@@ -81,15 +81,6 @@ npm run lint
 
 Before creating a pull request make sure to run all tests and lint your code to check if all changes can be adopted.
 
-## Contact
-
-I have created a [slack channel](https://join.slack.com/t/ercfund/shared_invite/enQtMzQxNDA3ODY5NDA5LTRhYTc2OWM2NWNmMTc2MTAzZjgwMWU2ZDBiN2M2OTNlNDg2OTI0YTQzYTIyN2QyMmE5YTFlNTk1MWJkZmM2NGE) where you can ask any questions about the repository or directly contact me.
-
-### About me
-
-I am currently finishing up my master studies at the Technical University of Vienna. I am both interested in blockchain-related tech and finance and developed this software as part of my master thesis.
-The master thesis will be published at least partly in the coming months.
-
 ## Special Thanks To
 
  - [OpenZeppelin](https://github.com/OpenZeppelin/zeppelin-solidity): I reused many of their community-audited code for simple functions of the fund. I find their initiative great and it was my main resource on learning how to program in Solidity.
